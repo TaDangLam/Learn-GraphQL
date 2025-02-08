@@ -17,10 +17,10 @@ const resolvers = {
                 age: 66
             }
         ]
+    },
+    Mutation: {
+        createBook: async(_, { name, genre, authorId }) => await bookService.createBook(name, genre, authorId )
     }
-    // Muitation: {
-
-    // }
 }
 
 export default resolvers;
