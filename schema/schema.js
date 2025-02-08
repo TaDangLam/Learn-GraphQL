@@ -3,7 +3,7 @@ import { gql } from "apollo-server-express";
 const typeDefs = gql`
   type Book {
     id: String
-    name: String
+    title: String
     genre: String
     authorId: String
     author: Author
@@ -27,7 +27,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createBook(name: String!, genre: String!, authorId: String!): Book
+    createAuthor(name: String, age: Int): Author
+    createBook(genre: String!, authorId: String!, title: String!): Book
   }
 `
 
