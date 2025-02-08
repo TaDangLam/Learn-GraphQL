@@ -8,6 +8,17 @@ const bookService = {
     getDetailBook: async(id) => {
         const book = await prisma.book.findUnique({ where: { id }});
         return book;
+    },
+    createBook: async(name, genre, authorId) => {
+        const newBook = await prisma.book.create({ data: {
+            name,
+            genre,
+            authorId
+        }});
+        return {
+            message: 'Create a new book is ok!',
+            data: newBook
+        }
     }
 }
 
