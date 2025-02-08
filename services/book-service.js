@@ -9,17 +9,15 @@ const bookService = {
         const book = await prisma.book.findUnique({ where: { id }});
         return book;
     },
-    createBook: async(name, genre, authorId) => {
-        const newBook = await prisma.book.create({ data: {
-            name,
-            genre,
-            authorId
-        }});
-        return {
-            message: 'Create a new book is ok!',
-            data: newBook
-        }
+    createBook: async(genre, title, authorId) => {
+        return await prisma.book.create({ 
+            data: {
+                genre,
+                title,
+                authorId
+            }});
     }
+
 }
 
 export default bookService;

@@ -1,5 +1,5 @@
 import bookService from "../services/book-service.js";
-
+import authorService from "../services/author-service.js"; 
 
 const resolvers = {
     Query: {
@@ -19,7 +19,8 @@ const resolvers = {
         ]
     },
     Mutation: {
-        createBook: async(_, { name, genre, authorId }) => await bookService.createBook(name, genre, authorId )
+        createAuthor: async(_, { name, age }) => await authorService.createAuthor(name, age),
+        createBook: async(_, { genre, title, authorId }) => await bookService.createBook(genre, title, authorId)
     }
 }
 
