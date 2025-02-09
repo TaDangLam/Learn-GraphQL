@@ -22,8 +22,8 @@ const typeDefs = gql`
   type Query {
     getAllBooks: [Book]
     getDetailBook(id: String!): Book
-    authors: [Author]
-    author(id: String!): Author
+    getAllAuthors: [Author]
+    getDetailAuthor(id: String!): Author
   }
 
   type Mutation {
