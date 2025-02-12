@@ -7,6 +7,9 @@ const authorResolvers = {
     },
     Mutation: {
         createAuthor: async(_, { name, age }) => await authorService.createAuthor(name, age),
+        updateAuthor: async(_, { id, name, age }) => await authorService.updateAuthor(id, name, age),
+        deleteAuthor: async(_, { id }) => await authorService.deleteAuthor(id)
+
     }
 }
 

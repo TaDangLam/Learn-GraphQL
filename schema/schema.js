@@ -1,35 +1,16 @@
-import { gql } from "apollo-server-express";
+import { mergeTypeDefs } from "@graphql-tools/merge"; 
 
-const typeDefs = gql`
-  type Book {
-    id: String
-    title: String
-    genre: String
-    authorId: String
-    author: Author
-    createdAt: String
-    updatedAt: String
-  }
+import gql from "./../libs/graphql-tag.js"
+import bookSchema from "./book/book-schema.js";
+import authorSchema from "./author/author-schema.js";
 
-  type Author {
-    id: String!
-    name: String
-    age: Int
-    books: [Book]
-  }
-
-  # Root Type
-  type Query {
-    getAllBooks: [Book]
-    getDetailBook(id: String!): Book
-    getAllAuthors: [Author]
-    getDetailAuthor(id: String!): Author
-  }
-
-  type Mutation {
-    createAuthor(name: String, age: Int): Author
-    createBook(genre: String!, authorId: String!, title: String!): Book
-  }
-`
+const typeDefs = mergeTypeDefs([
+  gql`
+    type Query
+    type Mutation
+  `,
+  bookSchema,
+  authorSchema
+]);
 
 export default typeDefs;
