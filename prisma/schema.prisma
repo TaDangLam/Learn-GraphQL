@@ -18,8 +18,9 @@ model Book {
 }
 
 model Author {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  age  Int
-  book Book[]
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  age     Int
+  books   Book[]
+  deleted Boolean @default(false)
 }

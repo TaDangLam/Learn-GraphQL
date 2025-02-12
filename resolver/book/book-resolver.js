@@ -6,7 +6,9 @@ const bookResolvers = {
         getDetailBook: async(_, { id }) => await bookService.getDetailBook(id),
     },
     Mutation: {
-        createBook: async(_, { genre, title, authorId }) => await bookService.createBook(genre, title, authorId)
+        createBook: async(_, { genre, title, authorId }) => await bookService.createBook(genre, title, authorId),
+        updateBook: async(_, { id, genre, title, authorId }) => await bookService.updateBook(id, genre, title, authorId),
+        deleteBook: async(_, { id }) => await bookService.deleteBook(id)
     }
 }
 
